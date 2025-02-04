@@ -2,7 +2,7 @@
 # Code written by Fatih C Akyon and Kadir Nar, 2021.
 
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, List, Optional
 
 import numpy as np
 
@@ -19,7 +19,10 @@ class TorchVisionDetectionModel(DetectionModel):
         check_requirements(["torch", "torchvision"])
 
     def load_model(self):
-        import torch
+        try:
+            import torch
+        except ImportError:
+            pass
 
         from sahi.utils.torchvision import MODEL_NAME_TO_CONSTRUCTOR
 
