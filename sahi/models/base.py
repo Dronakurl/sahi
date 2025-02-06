@@ -13,16 +13,16 @@ from sahi.utils.torch import select_device as select_torch_device
 class DetectionModel:
     def __init__(
         self,
-        model_path: Optional[str] = None,
-        model: Optional[Any] = None,
-        config_path: Optional[str] = None,
-        device: Optional[str] = None,
+        model_path: str | None = None,
+        model: Any | None = None,
+        config_path: str | None = None,
+        device: str | None = None,
         mask_threshold: float = 0.5,
         confidence_threshold: float = 0.3,
-        category_mapping: Optional[Dict] = None,
-        category_remapping: Optional[Dict] = None,
+        category_mapping: Dict | None = None,
+        category_remapping: Dict | None = None,
         load_at_init: bool = True,
-        image_size: int = None,
+        image_size: int | None = None,
     ):
         """
         Init object detection/instance segmentation model.
@@ -42,7 +42,7 @@ class DetectionModel:
             category_remapping: dict: str to int
                 Remap category ids based on category names, after performing inference e.g. {"car": 3}
             load_at_init: bool
-                If True, automatically loads the model at initalization
+                If True, automatically loads the model at initialization
             image_size: int
                 Inference input size.
         """
